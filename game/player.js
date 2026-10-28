@@ -39,6 +39,13 @@ export function createPlayer(scene, { x, y, face = 'down', isSolidAt, onStep }) 
   }
   let last = { x: sprite.x, y: sprite.y };
   let lastFrame = null;
+  // Physics steps at a fixed 60 Hz, but a 120 Hz screen draws twice per step. Only judge
+  // "did she move" on frames where physics ran, or every other frame looks like standing
+  // still and the walk flickers between the idle pose and its first frame.
+  let stepped = false;
+  const onWorldStep = () => { stepped = true; };
+  scene.physics.world.on('worldstep', onWorldStep);
+  sprite.once('destroy', () => scene.physics.world?.off('worldstep', onWorldStep));
 
   function fitBody() {
     const { w, h } = player.rig.body;
@@ -135,6 +142,8 @@ export function createPlayer(scene, { x, y, face = 'down', isSolidAt, onStep }) 
       last = { x: sprite.x, y: sprite.y };
       return;
     }
+    if (!stepped) return;
+    stepped = false;
     const moved = Math.abs(sprite.x - last.x) + Math.abs(sprite.y - last.y) > 0.01;
     if (moved && player.enabled) {
       sprite.anims.play(player.rig.anim(player.face), true);
