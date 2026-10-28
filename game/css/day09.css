@@ -1,0 +1,111 @@
+/* Day 9 panels (game/ui/day09.js): the bedside Go board, the workshop, the held last line.
+   Sizes in logical pixels (--px), colours from art/palette.js, as in game.css. */
+
+/* ------------------------------------------------------------ the bedside board */
+.d9-board {
+  position: absolute;
+  left: 50%;
+  top: calc(var(--px) * 6);
+  z-index: 12;
+  transform: translateX(-50%);
+  padding: calc(var(--px) * 4) calc(var(--px) * 6) calc(var(--px) * 3);
+  background: linear-gradient(#493731, #3b2c28);
+  border: var(--px) solid var(--ink);
+  box-shadow: 0 0 0 var(--px) var(--line);
+  text-align: center;
+}
+.d9-board.is-demo { pointer-events: none; }
+.d9-board-title, .d9-board-hint { margin: 0; font-size: max(8px, calc(var(--px) * 4)); letter-spacing: 0.1em; color: var(--paper); }
+.d9-board-title { text-transform: uppercase; color: var(--gold); margin-bottom: calc(var(--px) * 3); }
+.d9-board-hint { margin-top: calc(var(--px) * 3); color: var(--muted); min-height: calc(var(--px) * 5); }
+.d9-board.is-demo .d9-board-hint { display: none; }
+.d9-board-grid {
+  display: grid;
+  grid-template-columns: repeat(9, calc(var(--px) * 11));
+  grid-template-rows: repeat(9, calc(var(--px) * 11));
+  margin: 0 auto;
+  width: max-content;
+  padding: calc(var(--px) * 2);
+  background: #d1a56a;
+  box-shadow: inset 0 0 0 var(--px) #b18a61;
+}
+.d9-point {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+.d9-point::before, .d9-point::after { content: ''; position: absolute; background: #493731; }
+.d9-point::before { left: 0; right: 0; top: calc(50% - var(--px) / 2); height: var(--px); }
+.d9-point::after { top: 0; bottom: 0; left: calc(50% - var(--px) / 2); width: var(--px); }
+.d9-point[data-edge~='left']::before { left: 50%; }
+.d9-point[data-edge~='right']::before { right: 50%; }
+.d9-point[data-edge~='top']::after { top: 50%; }
+.d9-point[data-edge~='bottom']::after { bottom: 50%; }
+.d9-stone {
+  position: absolute;
+  inset: 8%;
+  z-index: 1;
+  border-radius: 50%;
+}
+.d9-stone[data-color='1'] { background: radial-gradient(circle at 35% 30%, #535971, #211f2b 60%); }
+.d9-stone[data-color='2'] { background: radial-gradient(circle at 35% 30%, #f2e2be, #b8abac 70%); }
+.d9-point.is-last .d9-stone::after { content: ''; position: absolute; inset: 34%; border-radius: 50%; border: var(--px) solid #a46b49; }
+.d9-point.is-cursor { outline: var(--px) solid #f6cf85; outline-offset: calc(var(--px) * -1); }
+.d9-point:focus-visible { outline: var(--px) solid #f6cf85; }
+
+/* "each of the places where the grids meet is a subdivision of that world" */
+.d9-board.is-grid .d9-point:not(:has(.d9-stone)) { background: radial-gradient(circle, #f6cf85 0 calc(var(--px) * 1.5), transparent calc(var(--px) * 1.6)); }
+/* "each of these Go pieces represents a person" */
+.d9-board.is-pieces .d9-stone { box-shadow: 0 0 0 var(--px) #f6cf85; }
+/* the lost child */
+.d9-lost { box-shadow: 0 0 0 var(--px) #74afd0, 0 0 calc(var(--px) * 3) #74afd0; }
+/* "And my left hand is God." */
+.d9-board.is-god .d9-board-grid { box-shadow: inset 0 0 0 var(--px) #b18a61, 0 0 0 calc(var(--px) * 2) #f6cf85; }
+
+/* ------------------------------------------------------------ the workshop */
+.d9-workshop { min-width: calc(var(--px) * 200); }
+.d9-workshop-note { color: var(--paper); font-size: max(9px, calc(var(--px) * 4.5)); }
+.d9-workshop-sets { list-style: none; margin: calc(var(--px) * 2) 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--px) * 2); }
+.d9-workshop-sets button {
+  display: grid;
+  grid-template-columns: calc(var(--px) * 16) 1fr;
+  grid-template-rows: auto auto;
+  column-gap: calc(var(--px) * 3);
+  align-items: center;
+  width: 100%;
+  height: auto !important;
+  line-height: 1.3 !important;
+  padding: calc(var(--px) * 2) calc(var(--px) * 3);
+  text-align: left;
+  background: #e7d3a610;
+  border: var(--px) solid var(--line);
+  cursor: pointer;
+}
+.d9-workshop-sets button:not(:disabled):hover, .d9-workshop-sets button:focus-visible { border-color: var(--gold); color: var(--gold); }
+.d9-workshop-sets button:disabled { cursor: default; opacity: 0.62; }
+.d9-set-icon { grid-row: 1 / 3; width: calc(var(--px) * 16); height: calc(var(--px) * 16); }
+.d9-set-name { font-size: max(9px, calc(var(--px) * 5)); letter-spacing: 0.04em; }
+.d9-set-status { font-size: max(8px, calc(var(--px) * 4)); color: var(--muted); letter-spacing: 0.06em; }
+.d9-workshop-stock { color: var(--gold); font-size: max(9px, calc(var(--px) * 4.5)); }
+
+/* ------------------------------------------------------------ the held line */
+.d9-hold {
+  position: absolute;
+  left: calc(var(--px) * 4);
+  right: calc(var(--px) * 4);
+  bottom: calc(var(--px) * 4);
+  z-index: 26;
+  min-height: calc(var(--px) * 40);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--px) * 4) calc(var(--px) * 8);
+  background: #211f2bf0;
+  border: var(--px) solid var(--line);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+}
+.d9-hold p { margin: 0; line-height: 1.42; color: var(--paper); font-style: italic; text-align: center; }
+.d9-hold[data-kind='world'] { top: 50%; bottom: auto; transform: translateY(-50%); min-height: calc(var(--px) * 30); }
+.d9-hold[data-kind='world'] p { font-style: normal; color: var(--ivory); letter-spacing: 0.08em; }

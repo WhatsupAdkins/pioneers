@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#211f2b">
+  <meta name="description" content="Pioneers: the farm game Sadie plays in Gabrielle Zevin's Tomorrow, and Tomorrow, and Tomorrow, made playable.">
+  <title>Pioneers</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23211f2b' d='M0 0h16v16H0z'/%3E%3Cpath fill='%23e7d3a6' d='M4 3h7v6H6v4H4zM6 5v2h3V5z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="game.css">
+  <script src="vendor/phaser-3.90.0.min.js"></script>
+  <script type="module" src="game/main.js"></script>
+</head>
+<body>
+  <main id="stage" class="stage">
+    <div id="frame" class="frame">
+      <div id="hud" class="hud" hidden>
+        <div class="hud-left">
+          <div class="hud-hearts" role="img" aria-label="Hearts"></div>
+          <p class="hud-purse" role="img"><span class="hud-purse-value">100</span></p>
+        </div>
+        <div class="hud-right">
+          <p class="hud-place">FRIENDSHIP</p>
+          <p class="hud-season">EARLY SPRING</p>
+          <p class="hud-screens" hidden></p>
+        </div>
+        <p class="hud-goal" hidden><span class="hud-goal-label">Now:</span> <span class="hud-goal-text"></span></p>
+      </div>
+
+      <p id="caption" class="caption" aria-live="polite" hidden></p>
+
+      <section id="dialogue" class="dialogue" aria-label="Dialogue" hidden>
+        <img class="dialogue-portrait" width="48" height="48" alt="" aria-hidden="true">
+        <p class="sr-only dialogue-live" aria-live="polite"></p>
+        <div class="dialogue-body">
+          <p class="dialogue-speaker"></p>
+          <p class="dialogue-text"></p>
+          <div class="dialogue-choices" hidden></div>
+        </div>
+        <button class="dialogue-skip" type="button" aria-label="Skip this line (S)">Skip</button>
+        <span class="dialogue-more" aria-hidden="true">▾</span>
+      </section>
+
+      <p id="toast" class="toast" role="status" hidden></p>
+
+      <section id="inventory" class="panel inventory" aria-labelledby="inventory-title" hidden>
+        <h2 id="inventory-title">Inventory</h2>
+        <div class="inventory-grid"></div>
+        <p class="inventory-name"></p>
+        <p class="inventory-text"></p>
+        <button class="inventory-action" type="button" hidden>Eat</button>
+        <p class="panel-hint">Arrows choose · Enter uses · I closes</p>
+      </section>
+
+      <section id="market" class="panel market" aria-labelledby="market-title" hidden>
+        <h2 id="market-title">The Mercantile</h2>
+        <p class="market-greeting"></p>
+        <div class="market-rows"></div>
+        <p class="market-purse"></p>
+        <p class="market-note" role="status"></p>
+        <p class="panel-hint">Arrows choose · Enter trades one · Esc leaves</p>
+        <div class="panel-actions"><button class="market-leave" type="button">Leave</button></div>
+      </section>
+
+      <section id="shop" class="panel shop" aria-labelledby="shop-title" hidden>
+        <h2 id="shop-title">The stables</h2>
+        <canvas class="shop-preview" aria-hidden="true"></canvas>
+        <p class="shop-offer">Pixel · azure mare · 60</p>
+        <label class="shop-label">Her name <input class="shop-name" type="text" maxlength="14" value="Pixel" autocomplete="off" spellcheck="false"></label>
+        <p class="shop-purse"></p>
+        <div class="panel-actions">
+          <button class="shop-buy" type="button">Buy for 60</button>
+          <button class="shop-leave" type="button">Not now</button>
+        </div>
+      </section>
+
+      <section id="menu" class="panel menu" aria-labelledby="menu-title" hidden>
+        <h2 id="menu-title">Paused</h2>
+        <button type="button" data-act="resume">Resume</button>
+        <button type="button" data-act="inventory">Inventory</button>
+        <button type="button" data-act="howto">How to play</button>
+        <button type="button" data-act="text">Text &amp; source</button>
+        <button type="button" data-act="sound" aria-pressed="false">Sound: off</button>
+        <button type="button" data-act="title">Return to title</button>
+      </section>
+
+      <section id="howto" class="panel howto" aria-labelledby="howto-title" hidden>
+        <div class="text-top">
+          <h2 id="howto-title">How to play</h2>
+          <button class="howto-close" type="button" aria-label="Close how to play">×</button>
+        </div>
+        <dl class="howto-keys">
+          <dt>Arrows</dt><dd>Walk. A tap only turns Emily.</dd>
+          <dt>E or Space</dt><dd>Use what Emily faces. A small <b>E</b> over her head means something is there.</dd>
+          <dt>Space / Enter</dt><dd>Next line. The first press finishes the typing.</dd>
+          <dt>S</dt><dd>Skip what someone is saying. People remember being skipped.</dd>
+          <dt>1–4</dt><dd>Pick a reply.</dd>
+          <dt>I</dt><dd>Inventory. Eat food here.</dd>
+          <dt>M</dt><dd>The larger map, when there is one to look at.</dd>
+          <dt>Esc</dt><dd>This menu.</dd>
+        </dl>
+        <p><b>Now:</b> the line at the bottom left says what to do next.</p>
+        <p><b>Hearts</b> are your strength. Long roads and farm work use them up; resting on your porch and eating bring them back. At none, rest.</p>
+        <p><b>Screens</b> count the distance from town on the road, one screen at a time.</p>
+        <p><b>Portals</b> (sage green, three gold dots) step you between places at no cost in hearts.</p>
+        <p><b>Days</b> end with the town paper, which prints what you did. The game saves when you sleep and when you rest.</p>
+      </section>
+
+      <section id="text-page" class="panel text-page" aria-labelledby="text-title" hidden>
+        <div class="text-top">
+          <h2 id="text-title">Text &amp; source</h2>
+          <button class="text-close" type="button" aria-label="Close text and source">×</button>
+        </div>
+        <p class="text-note">The game quotes the chapter “Pioneers” in Gabrielle Zevin’s <cite>Tomorrow, and Tomorrow, and Tomorrow</cite>. Day 1 (L01–L29) follows the supplied adaptation of the chapter’s opening, quoted exactly. Later days (L2.01 and on) quote the chapter word for word; where a line drops a speech tag (“Alabaster said”), the comma before it becomes a full stop. The short connective lines under “Written for the game” are not from the book. All pixel art is hand-authored; no generated images are used.</p>
+        <ol class="text-lines"></ol>
+        <h3>Written for the game</h3>
+        <ul class="text-authored"></ul>
+      </section>
+
+      <section id="paper" class="paper" aria-labelledby="paper-headline" hidden>
+        <canvas id="paper-masthead" class="paper-masthead" aria-hidden="true"></canvas>
+        <p class="sr-only">The Friendship Mirror</p>
+        <p class="paper-date"></p>
+        <h2 id="paper-headline" class="paper-headline"></h2>
+        <div class="paper-body"></div>
+        <button class="paper-sleep" type="button">Sleep</button>
+      </section>
+
+      <section id="day-card" class="panel day-card" aria-labelledby="card-title" hidden>
+        <p class="card-over">Day 2</p>
+        <h2 id="card-title">A gift of rocks</h2>
+        <p class="card-headline"></p>
+        <p class="card-goal"></p>
+        <p class="card-note" hidden></p>
+        <div class="panel-actions">
+          <button class="card-begin" type="button">Begin</button>
+          <button class="card-back" type="button">Back to title</button>
+        </div>
+      </section>
+
+      <section id="day-select" class="panel day-select" aria-labelledby="days-title" hidden>
+        <div class="text-top">
+          <h2 id="days-title">Day select</h2>
+          <button class="days-close" type="button" aria-label="Close day select">×</button>
+        </div>
+        <p class="text-note">Each day starts the way the book left the one before it. Finish a day to open the next.</p>
+        <ol class="days-list"></ol>
+      </section>
+
+      <section id="go" class="go" aria-labelledby="go-title" hidden></section>
+
+      <section id="title" class="title-screen" aria-labelledby="title-heading">
+        <h1 id="title-heading" class="title-logo">
+          <canvas id="title-logo" width="48" height="7" aria-hidden="true"></canvas>
+          <span class="sr-only">Pioneers</span>
+        </h1>
+        <p class="title-sub">Welcome, Stranger.</p>
+        <nav class="title-menu" aria-label="Title menu">
+          <button id="new-game" type="button" disabled>Preparing…</button>
+          <button id="continue" type="button" disabled>Continue</button>
+          <button id="day-select-open" type="button" disabled>Day select</button>
+          <button id="tuesday" type="button" disabled>Tuesday night</button>
+          <button id="text-source" type="button" disabled>Text &amp; source</button>
+        </nav>
+        <p class="title-foot">After the chapter <cite>Pioneers</cite> in Gabrielle Zevin’s <cite>Tomorrow, and Tomorrow, and Tomorrow</cite></p>
+      </section>
+
+      <p id="load-error" class="load-error" role="alert" hidden>Pioneers could not start. Reload the page to try again.</p>
+    </div>
+  </main>
+  <noscript>Pioneers needs JavaScript.</noscript>
+</body>
+</html>

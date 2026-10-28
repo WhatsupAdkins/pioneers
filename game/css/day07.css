@@ -1,0 +1,53 @@
+/* Day 7 and Day 8 panels (game/script/day07.js, day08.js): the birth announcement card, the
+   Half line on the hearts, LQ's hearts and the screens-out label while swimming, and the
+   Light meter at dusk. Loaded at run time; game.css is not touched. */
+.d07-announcement .paper-body { columns: 1; text-align: center; font-size: max(11px, calc(var(--px) * 6.5)); }
+.d07-announcement { z-index: 30; }
+
+.d07-half {
+  display: block;
+  width: calc(var(--px) * 1);
+  height: calc(var(--px) * 10);
+  margin: calc(var(--px) * -1) calc(var(--px) * 1) 0;
+  background: #a46b49;
+  position: relative;
+}
+.d07-half::after {
+  content: 'HALF';
+  position: absolute;
+  top: calc(var(--px) * 10);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: max(7px, calc(var(--px) * 3.5));
+  letter-spacing: 0.1em;
+  color: #e7d3a6;
+  text-shadow: 0 0 2px #211f2b;
+}
+
+.d07-swim {
+  position: absolute;
+  left: calc(var(--px) * 4);
+  top: calc(var(--px) * 26);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--px) * 1.5);
+  color: #e7d3a6;
+  font-size: max(8px, calc(var(--px) * 4));
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 2px #211f2b, 0 0 1px #211f2b;
+  pointer-events: none;
+}
+.d07-lq { display: flex; align-items: center; gap: calc(var(--px) * 1); }
+.d07-lq-hearts { display: flex; gap: calc(var(--px) * 0.5); }
+.d07-lq-hearts canvas { width: calc(var(--px) * 5); height: calc(var(--px) * 5); image-rendering: pixelated; }
+
+.d08-light {
+  position: absolute;
+  right: calc(var(--px) * 4);
+  top: calc(var(--px) * 24);
+  color: #f6cf85;
+  font-size: max(8px, calc(var(--px) * 4.5));
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 2px #211f2b, 0 0 1px #211f2b;
+  pointer-events: none;
+}

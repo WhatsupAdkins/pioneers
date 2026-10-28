@@ -1,0 +1,71 @@
+/* PIONEERCHAT (game/ui/day10.js): the private chat over the whole frame, paper-coloured,
+   monospace, like a printed log. Sizes in logical pixels (--px). */
+.d10-chat {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  padding: calc(var(--px) * 6) calc(var(--px) * 10) calc(var(--px) * 5);
+  background: #e7d3a6;
+  color: #211f2b;
+  font-size: max(9px, calc(var(--px) * 5));
+  transition: opacity 0.8s ease;
+}
+.d10-chat.is-leaving { opacity: 0; }
+.d10-chat-head {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: calc(var(--px) * 2);
+  border-bottom: var(--px) solid #211f2b;
+  letter-spacing: 0.2em;
+  font-size: max(8px, calc(var(--px) * 4.5));
+}
+.d10-chat-who { letter-spacing: 0.06em; color: #535971; }
+.d10-chat-log {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  padding: calc(var(--px) * 3) 0 0;
+  list-style: none;
+  scrollbar-width: thin;
+}
+.d10-chat-log li { margin: 0 0 calc(var(--px) * 3); line-height: 1.38; }
+.d10-chat-log li b { font-weight: 700; letter-spacing: 0.04em; }
+.d10-chat-log li[data-from='daedalus84'] b { color: #426e7a; }
+.d10-chat-log li[data-from='emily'] b { color: #a46b49; }
+.d10-chat-log li[data-from='system'] { color: #535971; font-style: italic; }
+.d10-chat-typing { margin: 0; min-height: calc(var(--px) * 6); font-size: max(8px, calc(var(--px) * 4)); color: #535971; }
+.d10-chat-compose {
+  display: flex;
+  gap: calc(var(--px) * 4);
+  align-items: flex-end;
+  padding-top: calc(var(--px) * 2);
+  border-top: var(--px) solid #211f2b;
+}
+.d10-chat-draft {
+  flex: 1;
+  margin: 0;
+  padding: calc(var(--px) * 2) calc(var(--px) * 3);
+  max-height: calc(var(--px) * 30);
+  overflow-y: auto;
+  line-height: 1.35;
+  background: #f2e2be;
+  border: var(--px) solid #535971;
+}
+.d10-chat-buttons { display: flex; flex-direction: column; gap: calc(var(--px) * 2); }
+.d10-chat-buttons button {
+  padding: calc(var(--px) * 1.5) calc(var(--px) * 4);
+  font-size: max(9px, calc(var(--px) * 4.5));
+  letter-spacing: 0.08em;
+  color: #e7d3a6;
+  background: #211f2b;
+  border: var(--px) solid #211f2b;
+  cursor: pointer;
+}
+.d10-chat-buttons .d10-chat-silent { color: #211f2b; background: transparent; }
+.d10-chat-buttons button:hover, .d10-chat-buttons button:focus-visible { outline: var(--px) solid #a46b49; outline-offset: var(--px); }
+@media (prefers-reduced-motion: reduce) {
+  .d10-chat { transition: none; }
+}

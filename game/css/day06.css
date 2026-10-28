@@ -1,0 +1,35 @@
+/* Day 6 (game/script/day06.js inserts this file): the dream and Ending A. Tokens come from
+   game.css. (The cap of six hearts is hud.update's: it shows only heartsMax.) */
+
+/* the lucid dream: black, and the womb in the middle at four game pixels a pixel */
+.day06-dream {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  background: var(--ink);
+}
+.day06-dream canvas {
+  position: absolute;
+  left: calc(50% - var(--px) * 64);
+  top: calc(var(--px) * 14);
+  width: calc(var(--px) * 128);
+  height: calc(var(--px) * 128);
+}
+
+/* Ending A */
+.day06-left {
+  position: absolute;
+  inset: 0;
+  z-index: 26;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--ivory);
+  font-size: max(14px, calc(var(--px) * 9));
+  letter-spacing: 0.04em;
+}
+.day06-ending { z-index: 27; max-width: calc(var(--px) * 240); }
+.day06-ending .card-over { color: var(--muted); letter-spacing: 0.2em; text-transform: uppercase; }
+.day06-ending h2 { font-size: max(14px, calc(var(--px) * 9)); color: var(--ivory); }
+.day06-ending-text { font-family: Georgia, 'Times New Roman', serif; color: var(--paper); text-align: left; }

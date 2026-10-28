@@ -1,0 +1,46 @@
+// Day 7, DOCTOR AND WIFE ARE HAPPY; BORED: the chapter's BIRTH ANNOUNCEMENT and the section
+// after it, quoted word for word in source order (L7.01–L7.38). A line is `text`, one
+// verbatim run of the book, or `parts`, verbatim runs of one speech with the speech tag
+// between them dropped (see ../lines.js).
+export const lines = {
+  // BIRTH ANNOUNCEMENT, printed on the card that opens the day
+  'L7.01': { kind: 'narration', text: 'Emily B. Marks and Dr. Edna Daedalus are proud to report the arrival of their son, Ludo Quintus Marks Daedalus. Dr. Daedalus says the boy is healthy and has an area of 17 square pixels.' },
+  // DOCTOR AND WIFE ARE HAPPY; BORED
+  'L7.02': { kind: 'narration', text: 'Even after their marriage and the birth of their child, Emily and Daedalus decided to maintain separate residences. The doctor constructed an additional portal between their houses, so there was no real urgency to combine property. The baby, Ludo Quintus, grew used to living in both places.' },
+  'L7.03': { kind: 'narration', text: 'LQ was an uncannily happy sprite. He never cried or fussed. He could be left unattended for long periods of time. He did not seek the company of other children, and he seemed content to be alone.' },
+  'L7.04': { kind: 'narration', text: 'In contrast with his long gestational period, his infancy was brief. He had the behavior and size of an eight-year-old by the time he was two.' },
+  'L7.05': { kind: 'narration', text: 'LQ was such an easy child that, to Emily, he sometimes seemed more like a doll than a human being.' },
+  'L7.06': { speaker: 'emily', parts: ['He is easier to grow than a carrot,'] },
+  'L7.07': { kind: 'narration', text: 'The house in the Upper Foglands was by the water, and as soon as LQ was old enough, Emily taught him to swim. LQ easily got the hang of swimming, and each time they went out, he wanted to swim farther.' },
+  'L7.08': { speaker: 'emily', parts: ['You must always check your hearts, and make sure you use no more than half of them, before you return,'] },
+  'L7.09': { speaker: 'lq', parts: ['Yes, Mama,'] },
+  'L7.10': { kind: 'narration', text: 'LQ and Emily would swim exactly two screens out, and then they would return.' },
+  'L7.11': { speaker: 'lq', text: 'How many screens is the ocean?' },
+  'L7.12': { speaker: 'emily', text: 'Nine or ten screens deep.' },
+  'L7.13': { speaker: 'lq', text: 'How do you know?' },
+  'L7.14': { speaker: 'emily', text: 'I have swum to the end.' },
+  'L7.15': { speaker: 'lq', text: 'And what is at the end?' },
+  'L7.16': { speaker: 'emily', text: 'A sort of fog, and then a nothingness that is like a wall. You shall grok it when you come to it.' },
+  'L7.17': { kind: 'narration', text: 'LQ nodded.' },
+  'L7.18': { speaker: 'lq', text: 'Is it awfully frightening, Mama?' },
+  'L7.19': { speaker: 'emily', text: 'No, it’s nothing to fear. It’s just the end.' },
+  'L7.20': { speaker: 'lq', parts: ['I want to see it,'] },
+  'L7.21': { speaker: 'emily', text: 'Why?' },
+  'L7.22': { speaker: 'lq', text: 'I don’t know. Because I have never seen it.' },
+  'L7.23': { speaker: 'emily', text: 'One day, when you are a stronger swimmer, and you have more hearts.' },
+  'L7.24': { kind: 'narration', text: 'That night when LQ was sleeping, Emily reported this conversation to Daedalus.' },
+  'L7.25': { speaker: 'emily', text: 'What do you make of it?' },
+  'L7.26': { speaker: 'daedalus', parts: ['I think it is natural to want to know the boundaries of your world,', 'We should encourage him in his explorations. He is a strong child, and he cannot hurt himself very badly. Shall I get out the Go board?'] },
+  'L7.27': { kind: 'narration', text: 'In most respects, it was an ordinary marriage, punctuated by competitive rounds of Go. Indeed, Emily felt the greatest intimacy with Daedalus when they were playing games together.' },
+  'L7.28': { speaker: 'emily', text: 'There must be more to life than working and swimming and playing Go.' },
+  'L7.29': { speaker: 'alabaster', parts: ['The boredom you speak of,', 'It is what most of us call happiness.'] },
+  'L7.30': { speaker: 'emily', text: 'I suppose.' },
+  'L7.31': { kind: 'narration', text: 'Alabaster sighed.' },
+  'L7.32': { speaker: 'alabaster', text: 'This is the game, Emily.' },
+  'L7.33': { speaker: 'emily', text: 'What game?' },
+  'L7.34': { speaker: 'alabaster', text: 'You are happy, and you are bored. You need to find a new pastime.' },
+  'L7.35': { speaker: 'emily', text: 'Did I ever tell you that I used to build engines?' },
+  'L7.36': { speaker: 'alabaster', text: 'No, I don’t think you did.' },
+  'L7.37': { speaker: 'emily', text: 'Once, I built one that made the light of the sun. And I built another one that made the fog.' },
+  'L7.38': { speaker: 'alabaster', text: 'Impressive. I did not know engines had these Promethean capabilities. Perhaps you should return to doing that, then?' },
+};

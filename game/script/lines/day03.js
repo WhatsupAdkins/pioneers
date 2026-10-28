@@ -1,0 +1,50 @@
+// Day 3, BOOKSTORE TO SELL CARDS AND GAMES: the chapter's third section, quoted word for word
+// in source order (L3.01–L3.40). A line is `text`, one verbatim run of the book, or `parts`,
+// verbatim runs of one speech with the speech tag between them dropped (see ../lines.js).
+export const lines = {
+  // beat 1: on the porch
+  'L3.01': { kind: 'narration', text: 'Alabaster Brown, for all their quirks, was one of the few people Emily felt she could have a conversation with, and they became frequent visitors to each other’s homesteads.' },
+  'L3.02': { speaker: 'emily', parts: ['I feel I am not suited for this life,', 'I have devoted months to growing a single carrot and I have no time to read. There must be more than farming.'] },
+  'L3.03': { speaker: 'alabaster', parts: ['You don’t have to have a farm,'] },
+  'L3.04': { speaker: 'emily', text: 'Don’t I, though?' },
+  'L3.05': { speaker: 'alabaster', parts: ['Everyone here has a farm, and everyone here starts out a farmer. We have more produce than we can bear in Friendship. Why not open a store in town instead?', 'Create a niche and trade for what you need.'] },
+  'L3.06': { speaker: 'alabaster', text: 'That’s how I came to make wine. No one here cares what you have done before. You can be anything you want to be.' },
+  'L3.07': { speaker: 'emily', parts: ['As long as it is a farmer or a shopkeeper,'] },
+  // beat 2: the ledger
+  'L3.08': { kind: 'narration', text: 'Emily was five months pregnant when she decided to open the bookstore. Friendship didn’t have one, and it would be a way for Emily to read more and farm less.' },
+  'L3.09': { kind: 'narration', text: 'She sold off her farm equipment at a 50 percent loss and she rented out her unused land to Alabaster. Emily allocated most of her remaining gold to the construction of a small building in town. She named the store Friendship Books.' },
+  // beat 3: the interview
+  'L3.10': { kind: 'narration', text: 'The Editor interviewed Emily about the store’s opening for the Friendship Mirror.' },
+  'L3.11': { speaker: 'editor', text: 'Our readers will want to know why you have decided to open a…' },
+  'L3.12': { kind: 'narration', text: 'The Editor searched his memory.' },
+  'L3.13': { speaker: 'editor', text: '…a bookstore, is it?' },
+  'L3.14': { speaker: 'emily', parts: ['I am an occasional poet and an avid reader,'] },
+  'L3.15': { speaker: 'editor', parts: ['Yes, of course, you are,', 'but what does this have to do with the daily lives and struggles of Friendshippers?'] },
+  'L3.16': { speaker: 'emily', text: 'I believe that virtual worlds can help people solve problems in the real one.' },
+  'L3.17': { speaker: 'editor', text: 'What is ‘virtual’?' },
+  'L3.18': { speaker: 'emily', text: 'Nearly appearing so. Like yourself.' },
+  'L3.19': { speaker: 'editor', parts: ['You speak in riddles,'] },
+  // beat 4: the weeks at the store
+  'L3.20': { kind: 'narration', text: 'By her sixth month of pregnancy, Emily knew the reason Friendship lacked a bookstore: it was not a town of readers. With the demands of farming and gifting, Friendshippers were left with little free time, and what free time they had, they did not wish to devote to reading Walden by candlelight.' },
+  'L3.21': { kind: 'narration', text: 'By her seventh month, she was on the verge of closing the store—she did not possess the missionary zeal for converting nonreaders into readers — and perhaps even abandoning Friendship for good.' },
+  'L3.22': { kind: 'narration', text: 'It was Alabaster who suggested she expand her business by selling greeting cards.' },
+  'L3.23': { speaker: 'alabaster', parts: ['In addition to the books, of course,'] },
+  'L3.24': { speaker: 'emily', parts: ['Will it make a difference?', 'Do people like greeting cards?'] },
+  'L3.25': { speaker: 'alabaster', text: 'Yes, I believe they do. There are numerous heads of cabbage and birthdays to acknowledge.' },
+  'L3.26': { kind: 'narration', parts: ['Almost as an afterthought, Alabaster added,'] },
+  'L3.27': { speaker: 'alabaster', text: 'You could also sell games. Reading is a chore, but I have heard told there is much money to be made in amusements.' },
+  'L3.28': { kind: 'narration', text: 'Emily changed the name of the store to Friendship Books, Stationery, & Games, and she began to stock the store in kind. Board games and stationery proved slightly more popular than the books alone had been.' },
+  'L3.29': { kind: 'narration', text: 'Emily was perpetually at two or less hearts, but she was able to make a living.' },
+  // beat 5: on the steps
+  'L3.30': { kind: 'narration', text: 'One evening, Alabaster found Emily passed out on the front steps of her house. Alabaster roused her.' },
+  'L3.31': { speaker: 'alabaster', text: 'Is it the baby?' },
+  'L3.32': { kind: 'narration', text: 'She shook her head, but she could not speak.' },
+  'L3.33': { speaker: 'alabaster', text: 'I fear that you are not eating enough. I can plainly see that you’ve let your hearts get too low.' },
+  'L3.34': { kind: 'narration', text: 'Alabaster gave her a can of PioneerAde from his inventory.' },
+  'L3.35': { speaker: 'alabaster', text: 'Drink.' },
+  'L3.36': { speaker: 'emily', parts: ['I have a pain that exists only in my head,', 'I have had it my whole life. But when I feel that pain, I am incapacitated by it, and I am certain that I can’t go on.'] },
+  'L3.37': { kind: 'narration', text: 'Alabaster studied Emily.' },
+  'L3.38': { speaker: 'alabaster', text: 'I think it is your glasses. They are far too small for your face. You should go see the optometrist.' },
+  'L3.39': { speaker: 'emily', text: 'Does Friendship even have one?' },
+  'L3.40': { speaker: 'alabaster', text: 'Yes, her name is Dr. Daedalus, and her shop is a few doors down from your own. I’m surprised you didn’t notice it before.' },
+};

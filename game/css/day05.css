@@ -1,0 +1,39 @@
+/* Day 5 (game/script/day05.js inserts this file): the board's notice, the advertisement that
+   crosses the screen mid-scene, and the same advertisement as a strip at the foot of the paper.
+   Tokens come from game.css. */
+
+/* "Doctor seeks Gamer…", as pinned to the board: printed, not spoken */
+.dialogue[data-kind='notice'] .dialogue-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: var(--ivory);
+}
+
+/* FOR AN AD-FREE EXPERIENCE…: a banner across the top of the screen */
+.caption[data-kind='ad'] {
+  bottom: auto;
+  top: calc(var(--px) * 6);
+  left: calc(var(--px) * 10);
+  right: calc(var(--px) * 10);
+  width: auto;
+  margin: 0;
+  padding: calc(var(--px) * 3) calc(var(--px) * 6);
+  font-style: normal;
+  font-size: max(9px, calc(var(--px) * 5));
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  background: var(--gold);
+  border: var(--px) solid var(--ink);
+}
+
+/* the paper's last paragraph, across both columns, boxed like a paid notice */
+.paper[data-ad='day05'] .paper-body p:last-child {
+  column-span: all;
+  margin: calc(var(--px) * 4) 0 0;
+  padding: calc(var(--px) * 2) calc(var(--px) * 4);
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: max(8px, calc(var(--px) * 4.5));
+  letter-spacing: 0.1em;
+  color: var(--paper);
+  background: var(--ink);
+}

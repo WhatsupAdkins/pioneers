@@ -1,0 +1,53 @@
+// Day 6, WEDDING ANNOUNCEMENT: the sixth section from "In the past, Emily had many reasons…"
+// and the seventh section, the announcement itself (GAME-PLAN-DAYS §B Day 6), quoted word for
+// word in source order (L6.01–L6.44). A line is `text`, one verbatim run of the book, or
+// `parts`, verbatim runs of one speech with the speech tag between them dropped (see
+// ../lines.js). L6.39–L6.43 are the announcement, printed as the day's paper; its middle
+// paragraph is split in three at its sentences. L6.44 is the doctor's reply from the last
+// paragraph, spoken by the hedge maze.
+export const lines = {
+  'L6.01': { kind: 'narration', text: 'In the past, Emily had many reasons for not wishing to marry—among them her belief that marriage was conventional and a trap for women. She had rejected two engagements in her previous life, but at this juncture, she could see the facility of embarking on a different course. She discussed the matter with Alabaster.' },
+  'L6.02': { speaker: 'alabaster', parts: ['Verdant Valley is more fecund, but it’s disgustingly crowded,', 'Would you honestly wish to live there? You will be constantly fending off gifts of turnips.'] },
+  'L6.03': { speaker: 'emily', text: 'Alabaster, I did not come here to discuss the merits of living in the Valley.' },
+  'L6.04': { speaker: 'alabaster', text: 'What is your objection, then?' },
+  'L6.05': { speaker: 'emily', text: 'I barely know Daedalus. We have played several games of Go, that’s it. She does not even allow me to call her by her first name.' },
+  'L6.06': { speaker: 'alabaster', text: 'Oh, well, if that’s your concern, I wouldn’t worry about it. The most important thing is finding someone you wish to play with. And in any case, marriage is a more practical affair here. You join property, and if it doesn’t work out, you separate property. I have done it—' },
+  'L6.07': { speaker: 'emily', text: 'Twelve times, I know.' },
+  'L6.08': { speaker: 'alabaster', text: 'And I am no worse for the wear.' },
+  'L6.09': { speaker: 'emily', text: 'This seems an about-face from what you told me several months ago. You went on and on about how wearying it was to join and separate property.' },
+  'L6.10': { speaker: 'alabaster', text: 'There is a pleasure to the joining of property as well, otherwise why would we all keep doing it? ‘Pleasure’ might be too strong a word. If not a pleasure, let us say an interest. It develops the plot.' },
+  'L6.11': { kind: 'narration', text: 'Alabaster eyed Emily’s still growing stomach.' },
+  'L6.12': { speaker: 'alabaster', text: 'How many months are you along now?' },
+  'L6.13': { speaker: 'emily', text: 'Perhaps eleven. I’m not sure. Soon, I shall be able to roll from Upper Foglands to town.' },
+  'L6.14': { speaker: 'alabaster', text: 'I feel you have lived here longer than eleven months, and you were with child when you arrived. Is it possible your unborn child is waiting for you to be married?' },
+  'L6.15': { speaker: 'emily', parts: ['No, I could never have a child so conventional,'] },
+  'L6.16': { speaker: 'alabaster', text: 'Then, is it possible that it’s a force greater than the will of your child? Greater than biology even?' },
+  'L6.17': { speaker: 'emily', text: 'What force are we speaking of?' },
+  'L6.18': { speaker: 'alabaster', text: 'The algorithm.' },
+  'L6.19': { kind: 'narration', text: 'Alabaster’s eyes darted around the room, as if they were being spied on, and then they lowered their voice.' },
+  'L6.20': { speaker: 'alabaster', text: 'You know, the unseen force, al-Khwarizmi, that guides all of our lives.' },
+  'L6.21': { speaker: 'emily', text: 'You are superstitious.' },
+  'L6.22': { speaker: 'alabaster', text: 'Maybe so, but what if the algorithm doesn’t allow children before marriage?' },
+  'L6.23': { speaker: 'emily', text: 'Oh, for God’s sake. I can’t believe Friendship would have such conventional morality baked into it. Who made the rules of this world anyway?' },
+  'L6.24': { kind: 'narration', text: 'And yet, that night, Emily had a lucid dream of her pixelated child, trapped in her pixelated womb. She cursed Alabaster for having put such provincial notions in her head.' },
+  'L6.25': { kind: 'narration', text: 'For the next several weeks, neither wishing to accept nor reject Daedalus’s proposal, Emily avoided her entirely. The commute felt longer than ever, and with the amount of weight Emily was carrying, she exhausted her hearts quickly.' },
+  'L6.26': { kind: 'narration', text: 'When Daedalus finally came to the store, she did not mention the proposal.' },
+  'L6.27': { speaker: 'daedalus', parts: ['I’ve made something for you, Em,', 'I call it the Xyzzy portal. It’s to help you travel through Friendship.'] },
+  'L6.28': { kind: 'narration', text: 'The doctor had installed a portal that connected Emily’s store to her house, allowing her to bypass her commute. The portal was sage green and had three golden dots painted on the side:' },
+  'L6.29': { kind: 'narration', text: 'Emily studied the dots.' },
+  'L6.30': { speaker: 'emily', text: 'Is that an upside-down ‘therefore’ symbol?' },
+  'L6.31': { speaker: 'daedalus', text: 'When the dots are placed this way, they mean ‘because.’ I know my house is closer to town than yours. If you do ever decide to marry me,' },
+  'L6.32': { speaker: 'daedalus', text: 'I did not wish convenience to be a factor in your decision.' },
+  'L6.33': { kind: 'narration', text: 'That night, Emily showed Alabaster the portal. Alabaster stepped into it, and then they returned a moment later.' },
+  'L6.34': { speaker: 'alabaster', parts: ['It works,', 'I’m going to need wine. Don’t scrimp on the pours.'] },
+  'L6.35': { kind: 'narration', text: 'Emily decanted and then they went out to the porch.' },
+  'L6.36': { speaker: 'alabaster', parts: ['Well, Emily, that odd little doctor is romantic,'] },
+  'L6.37': { speaker: 'emily', text: 'Yes, I suppose so.' },
+  'L6.38': { speaker: 'alabaster', parts: ['And what is love, in the end?', 'Except the irrational desire to put evolutionary competitiveness aside in order to ease someone else’s journey through life?'] },
+  'L6.39': { kind: 'paper', text: 'Ms. Emily B. Marks and Dr. Edna Daedalus were married by yours truly, in a ceremony attended by their small circle of intimates, including Pixel, the azure mare, and the vintner Alabaster Brown.' },
+  'L6.40': { kind: 'paper', text: 'Ms. Marks carried a bouquet of a dozen glass flowers, hand blown by Dr. Daedalus.' },
+  'L6.41': { kind: 'paper', text: 'Midway through the ceremony, snow began to fall, though Ms. Marks, who is two years pregnant, reported that she did not feel cold.' },
+  'L6.42': { kind: 'paper', text: 'In the months leading up to their nuptials, the couple had been playing games of Go, and Ms. Marks reported that the initial impetus for the marriage had been a desire to avoid interrupting their games with an eleven-screen winter commute.' },
+  'L6.43': { kind: 'paper', text: 'As a wedding gift to Ms. Marks, Dr. Daedalus created a topiary hedge maze in the garden by her house. When asked why she had decided to make such a gift, the doctor replied cryptically, “To make a game is to imagine the person playing it.”' },
+  'L6.44': { speaker: 'daedalus', text: 'To make a game is to imagine the person playing it.' },
+};

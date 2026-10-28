@@ -1,0 +1,35 @@
+// Day 1 lines, copied verbatim (punctuation included) from `lines` in arrival-script.js, the
+// user-supplied adaptation of the chapter's opening. Ids follow that array's order: L01–L29.
+// check-script.mjs compares them with arrival-script.js, so edit there and here together or
+// not at all. speaker: emily | editor; kind: narration | world (no speaker).
+export const lines = {
+  L01: { kind: "narration", text: "It is almost spring." },
+  L02: { kind: "narration", text: "The ground crunches beneath the Stranger’s boot. A white crocus pushes through the frost." },
+  L03: { kind: "world", text: "Welcome, Stranger." },
+  L04: { speaker: "emily", text: "Emily B. Marks." },
+  L05: { speaker: "editor", text: "When will your spouse be joining you, Mrs. Marks?" },
+  L06: { speaker: "emily", text: "It is Miss Marks, and I am alone and intend to stay that way." },
+  L07: { speaker: "editor", text: "I warn you: a comely young person like yourself never finds herself at a loss for company in these parts." },
+  L08: { speaker: "editor", text: "Life is quite difficult here, and even the most independent among us find it beneficial to pair up." },
+  L09: { speaker: "editor", text: "Where will you be staying, if you don’t mind my asking?" },
+  L10: { speaker: "emily", text: "I’m told it’s on a high cliff, by the water." },
+  L11: { speaker: "editor", text: "Upper Foglands? Hope you like rocks! No one’s kept a farm in Upper Foglands for as long as I can recall." },
+  L12: { speaker: "editor", text: "And the only folks nearby are—Alabaster Brown, the vintner, who has been married a dozen—" },
+  L13: { speaker: "emily", text: "I have no interest in town gossip. Skip." },
+  L14: { speaker: "editor", text: "If you change your mind, be sure to take a gander at the town message board before you go. It has the latest Friendship happenings." },
+  L15: { speaker: "editor", text: "I shall post a story about your arrival as soon as we are done speaking." },
+  L16: { speaker: "emily", text: "Is it possible to opt out of such a posting?" },
+  L17: { speaker: "editor", text: "Even Alabaster Brown’s vineyard is closer than your plot in Foglands. If it were me, Miss, I’d find land nearer to town should the opportunity present itself." },
+  L18: { speaker: "editor", text: "Verdant Valley would certainly be a fine place to raise a—" },
+  L19: { speaker: "emily", text: "Skip." },
+  L20: { kind: "narration", text: "She asks the way to the stables." },
+  L21: { speaker: "editor", text: "Here." },
+  L22: { speaker: "editor", text: "It’s a gift. To help you get started." },
+  L23: { speaker: "emily", text: "This is very generous. What is it?" },
+  L24: { speaker: "editor", text: "I call it a panem et caseum morsu. It’s based on a dish my grandparents made in the old count—" },
+  L25: { speaker: "emily", text: "Skip." },
+  L26: { kind: "narration", text: "In the time it takes her to add the offering to her inventory, the Editor disappears." },
+  L27: { kind: "narration", text: "An azure mare. Her name will be Pixel." },
+  L28: { kind: "world", text: "Upper Foglands" },
+  L29: { kind: "narration", text: "The northwesternmost edge of Friendship. A high cliff, by the water." },
+};

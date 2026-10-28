@@ -1,0 +1,49 @@
+/* Day 13's panels (inserted at run time by game/script/day13.js; PARALLEL-RULES §2):
+   the Ceremonies menu, the Bequests form, the headstone and the closing card. */
+.d13-ceremonies { min-width: calc(var(--px) * 170); }
+.d13-ceremonies .d13-list { display: flex; flex-direction: column; gap: calc(var(--px) * 2); margin: calc(var(--px) * 3) 0; }
+.d13-ceremonies .d13-list button { border: var(--px) solid var(--line); cursor: pointer; }
+.d13-ceremonies .d13-list button[aria-disabled='true'] { opacity: 0.5; cursor: default; }
+.d13-ceremonies .d13-list button:focus-visible, .d13-bequests button:focus-visible, .d13-ending button:focus-visible { outline: var(--px) solid var(--gold); }
+.d13-note { min-height: calc(var(--px) * 16); color: var(--muted); font-style: italic; }
+
+.d13-bequests { min-width: calc(var(--px) * 250); }
+.d13-row { display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: calc(var(--px) * 3); margin: calc(var(--px) * 2) 0; text-align: left; }
+.d13-row-name { color: var(--ivory); }
+.d13-row button { border: var(--px) solid var(--line); background: transparent; cursor: pointer; padding: 0 calc(var(--px) * 3) !important; }
+.d13-row button[aria-pressed='true'] { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+.d13-row.is-current .d13-row-name { color: var(--gold); }
+.d13-row.is-current .d13-row-name::before { content: '▸ '; }
+
+/* the headstone, full screen */
+.d13-stone {
+  position: absolute;
+  inset: 0;
+  z-index: 22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ink);
+  transition: opacity 900ms ease;
+}
+.d13-stone.is-leaving { opacity: 0; }
+.d13-stone-face {
+  width: calc(var(--px) * 150);
+  padding: calc(var(--px) * 22) calc(var(--px) * 10) calc(var(--px) * 16);
+  border-radius: calc(var(--px) * 70) calc(var(--px) * 70) calc(var(--px) * 2) calc(var(--px) * 2);
+  background: #b8abac;
+  box-shadow: inset calc(var(--px) * -4) 0 0 #858397, 0 calc(var(--px) * 3) 0 #776e7d;
+  color: #3a3d52;
+  text-align: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.08em;
+}
+.d13-stone-face p { margin: 0 0 calc(var(--px) * 5); font-size: max(11px, calc(var(--px) * 6.5)); line-height: 1.3; }
+.d13-stone-face p:first-child { font-size: max(12px, calc(var(--px) * 7.5)); }
+.d13-stone-face p:last-child { margin: calc(var(--px) * 8) 0 0; font-size: max(10px, calc(var(--px) * 5.5)); }
+@media (prefers-reduced-motion: reduce) { .d13-stone { transition: none; } }
+
+/* the closing card sits above the title screen, under Day select and Text & source */
+.d13-ending { z-index: 22; min-width: calc(var(--px) * 200); }
+.d13-ending .d13-ends { font-size: max(14px, calc(var(--px) * 9)); color: var(--ivory); margin: calc(var(--px) * 4) 0; }
+.d13-ending .panel-actions { flex-wrap: wrap; }

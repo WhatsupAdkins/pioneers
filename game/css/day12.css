@@ -1,0 +1,34 @@
+/* Day 12's panels (inserted at run time by game/script/day12.js; PARALLEL-RULES §2):
+   the larger map (M) and the shodding bargain. Sizes in logical pixels, like game.css. */
+.d12-map { min-width: 0; max-width: none; max-height: none; padding: calc(var(--px) * 4); cursor: pointer; }
+.d12-map .panel-hint { margin: calc(var(--px) * 2) 0 0; }
+.d12-map:focus { outline: none; }
+.d12-map-frame { position: relative; width: calc(var(--px) * 256); height: calc(var(--px) * 144); margin: 0 auto; outline: var(--px) solid var(--timber); }
+.d12-map-frame canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.d12-here {
+  position: absolute;
+  width: calc(var(--px) * 4);
+  height: calc(var(--px) * 4);
+  margin: calc(var(--px) * -2) 0 0 calc(var(--px) * -2);
+  background: var(--rust);
+  box-shadow: 0 0 0 var(--px) var(--ink);
+  animation: d12-blink 1s steps(2, jump-none) infinite;
+}
+@keyframes d12-blink { 50% { opacity: 0.2; } }
+@media (prefers-reduced-motion: reduce) { .d12-here { animation: none; } }
+
+.d12-bargain { min-width: calc(var(--px) * 200); }
+.d12-bargain-rows { display: flex; flex-direction: column; gap: calc(var(--px) * 2); margin: calc(var(--px) * 3) 0; }
+.d12-bargain-rows button {
+  display: flex;
+  justify-content: space-between;
+  gap: calc(var(--px) * 8);
+  text-align: left;
+  border: var(--px) solid var(--line);
+  background: #e7d3a610;
+  cursor: pointer;
+}
+.d12-bargain-rows button:disabled { opacity: 0.45; cursor: default; }
+.d12-bargain-rows button:focus-visible { outline: var(--px) solid var(--gold); }
+.d12-bargain-price { color: var(--gold); }
+.d12-bargain-note { min-height: calc(var(--px) * 8); color: var(--muted); font-style: italic; }

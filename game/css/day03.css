@@ -1,0 +1,30 @@
+/* Days 3 and 4: the choice panel (ledger, stock, eye chart). Loaded by game/ui/day03.js. */
+.day03-panel { z-index: 12; min-width: calc(var(--px) * 200); }
+.day03-row { grid-template-columns: calc(var(--px) * 16) 1fr auto !important; }
+.day03-row:disabled { opacity: 0.55; }
+.day03-row.is-done { opacity: 0.8; }
+.day03-row.is-done .market-owned { color: var(--gold); }
+.day03-row.is-plain { grid-template-columns: 1fr auto !important; padding-top: var(--px) !important; padding-bottom: var(--px) !important; }
+/* a panel with a picture (the eye chart): tighter, so it fits the 180-px frame */
+.day03-panel.has-body { padding-top: calc(var(--px) * 4); padding-bottom: calc(var(--px) * 4); }
+.day03-panel.has-body h2 { margin-bottom: calc(var(--px) * 2); }
+.day03-panel.has-body .market-rows { margin: calc(var(--px) * 2) 0; }
+.day03-panel.has-body .panel-actions { margin-top: var(--px); }
+
+.day04-chart {
+  margin: var(--px) auto;
+  padding: calc(var(--px) * 2) calc(var(--px) * 6);
+  width: calc(var(--px) * 90);
+  background: #f2e2be;
+  border: var(--px) solid #211f2b;
+  color: #211f2b;
+  font-family: Georgia, 'Times New Roman', serif;
+  letter-spacing: 0.2em;
+  text-align: center;
+}
+.day04-chart-line { margin: 0 !important; line-height: 1.15 !important; }
+.day04-chart-1 { font-size: calc(var(--px) * 12); }
+.day04-chart-2 { font-size: calc(var(--px) * 8); }
+.day04-chart-3 { font-size: calc(var(--px) * 6); }
+.day04-chart-4 { font-size: calc(var(--px) * 4.5); }
+.day04-chart-5 { font-size: calc(var(--px) * 3); filter: blur(0.04em); }
